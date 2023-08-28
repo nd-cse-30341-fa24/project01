@@ -12,8 +12,8 @@ def main():
 
     duration = int(sys.argv[1])
 
-    for _ in range(duration*10):
-        time.sleep(0.1)
+    for _ in range(duration*100):
+        time.sleep(0.01)
 
 if __name__ == '__main__':
     main()
