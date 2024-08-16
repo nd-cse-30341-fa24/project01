@@ -13,7 +13,7 @@
  *  waiting queue to the running queue.
  *
  * @param   s	    Scheduler structure
- */
+ **/
 void scheduler_fifo(Scheduler *s) {
     /* TODO: Implement FIFO Policy */
 }

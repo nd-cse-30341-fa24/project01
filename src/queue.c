@@ -40,7 +40,7 @@ Process *   queue_remove(Queue *q, pid_t pid) {
  * @param fs    Output file stream.
  **/
 void        queue_dump(Queue *q, FILE *fs) {
-    fprintf(fs, "%6s %-30s %-13s %-13s %-13s\n", 
+    fprintf(fs, "%9s %-30s %-13s %-13s %-13s\n",
                 "PID", "COMMAND", "ARRIVAL", "START", "END");
     /* TODO: Display information for each item in Queue. */
 }

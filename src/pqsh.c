@@ -3,19 +3,15 @@
 #include "pqsh/macros.h"
 #include "pqsh/options.h"
 #include "pqsh/scheduler.h"
-#include "pqsh/signal.h"
 
 #include <errno.h>
+#include <signal.h>
 #include <string.h>
 #include <sys/time.h>
 
 /* Global Variables */
 
-Scheduler PQShellScheduler = {
-    .policy    = FIFO_POLICY,
-    .cores     = 1,
-    .timeout   = 250000,
-};
+extern Scheduler PQSHScheduler;
 
 /* Help Message */
 
@@ -30,7 +26,7 @@ void help() {
 /* Main Execution */
 
 int main(int argc, char *argv[]) {
-    Scheduler *s = &PQShellScheduler;
+    Scheduler *s = &PQSHScheduler;
 
     /* TODO: Parse command line options */
 
@@ -38,22 +34,27 @@ int main(int argc, char *argv[]) {
 
     /* TODO: Start timer interrupt */
 
-    /* TODO: Process shell comands */
+    /* TODO: Process shell commands */
     while (!feof(stdin)) {
         char command[BUFSIZ]  = "";
         char argument[BUFSIZ] = "";
 
         printf("\nPQSH> ");
 
-        while (!fgets(command, BUFSIZ, stdin) && !feof(stdin));
+        while (!fgets(command, BUFSIZ, stdin) && !feof(stdin)) {
+            /* TODO: Check events */
+        }
 
         chomp(command);
-        
-        /* TODO: Handle add and status commands */
+
         if (streq(command, "help")) {
             help();
         } else if (streq(command, "exit") || streq(command, "quit")) {
             break;
+        } else if (sscanf(command, "add %[^\t\n]", argument) == 1) {
+            /* TODO: Handle add command */
+        } else if (streq(command, "status") || sscanf(command, "status %[^\t\n]", argument) == 1) {
+            /* TODO: Handle status command */
         } else if (strlen(command)) {
             printf("Unknown command: %s\n", command);
         }

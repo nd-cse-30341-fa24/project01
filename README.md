@@ -1,11 +1,15 @@
 # Project 01: Process Queue Shell
 
-This is [Project 01] of [CSE.30341.FA23].
+This is [Project 01] of [CSE.30341.FA24].
 
 ## Students
 
 - Domer McDomerson (dmcdomer@nd.edu)
 - Belle Fleur (bfleur@nd.edu)
+
+## Video
+
+[Reflection Video](...)
 
 ## Brainstorming
 
@@ -34,7 +38,10 @@ approach implementing [Project 01].
 1. What **system call** will allow us to trigger a timer event at periodic
    intervals?  What signal does it send when a timer is triggered?
 
-2. What functions would allow you to parse strings with various arguments?
+2. How will you interweave reading **input** from the user, handling periodic
+   **timers**, and waiting for **child** processes?
+
+3. What functions would allow you to parse strings with various arguments?
 
 ### Scheduler
 
@@ -47,9 +54,10 @@ approach implementing [Project 01].
 3. How would you wait for a process without blocking? What information do you
    need to update when a process terminates?
 
-### Signal
+4. What should the scheduler handler functions do when they receive either a
+   `SIGALRM` or a `SIGCHLD`?
 
-1. What should happen in the `Scheduler` when a timer event fires?
+5. When and where are `scheduler_wait` and `scheduler_next` called?
 
 ### Timestamp
 
@@ -60,5 +68,11 @@ approach implementing [Project 01].
 
 > Describe any known errors, bugs, or deviations from the requirements.
 
-[Project 01]:       https://www3.nd.edu/~pbui/teaching/cse.30341.fa23/project01.html
-[CSE.30341.FA23]:   https://www3.nd.edu/~pbui/teaching/cse.30341.fa23/
+## Acknowledgments
+
+> List anyone you collaborated with or received help from (including TAs, other
+students, and AI tools)
+
+
+[Project 01]: https://www3.nd.edu/~pbui/teaching/cse.30341.fa24/project01.html
+[CSE.30341.FA24]: https://www3.nd.edu/~pbui/teaching/cse.30341.fa24/

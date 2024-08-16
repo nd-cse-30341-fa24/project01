@@ -7,24 +7,33 @@
 #include <errno.h>
 #include <sys/wait.h>
 
+/* Global Variables */
+
+Scheduler PQSHScheduler = {
+    .policy    = FIFO_POLICY,
+    .cores     = 1,
+    .timeout   = 250000,
+    .event     = EVENT_INPUT,
+};
+
+/* Functions */
+
 /**
  * Add new command to waiting queue.
  * @param   s	    Pointer to Scheduler structure.
- * @param   fs      File stream to write to.
  * @param   command Command string for new Process.
  **/
-void scheduler_add(Scheduler *s, FILE *fs, const char *command) {
+void scheduler_add(Scheduler *s, const char *command) {
     /* TODO: Implement */
 }
 
 /**
  * Display status of queues in Scheduler.
  * @param   s	    Pointer to Scheduler structure.
- * @param   fs      File stream to write to.
  * @param   queue   Bitmask specifying which queues to display.
  **/
-void scheduler_status(Scheduler *s, FILE *fs, int queue) {
-    fprintf(fs, "Running = %4lu, Waiting = %4lu, Finished = %4lu, Turnaround = %05.2lf, Response = %05.2lf\n");
+void scheduler_status(Scheduler *s, int queue) {
+    printf("Running = %4lu, Waiting = %4lu, Finished = %4lu, Turnaround = %05.2lf, Response = %05.2lf\n");
     /* TODO: Complete implementation. */
 }
 
@@ -47,6 +56,22 @@ void scheduler_wait(Scheduler *s) {
      *  - Update Process metrics.
      *  - Update Scheduler metrics.
      **/
+}
+
+/**
+ * Handle SIGALRM by setting appropriate event.
+ * @param   signum  Signal number (ignored).
+ **/
+void scheduler_handle_sigalrm(int signum) {
+    /* TODO: Add EVENT_TIMER to PQSHScheduler. */
+}
+
+/**
+ * Handle SIGCHLD by setting appropriate event.
+ * @param   signum  Signal number (ignored).
+ **/
+void scheduler_handle_sigchld(int signum) {
+    /* TODO: Add EVENT_CHILD to PQSHScheduler. */
 }
 
 /* vim: set expandtab sts=4 sw=4 ts=8 ft=c: */

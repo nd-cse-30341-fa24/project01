@@ -44,14 +44,14 @@ EOF
 
 # Main Execution
 
-printf "Testing %-21s...\n" "$(basename $LOGFILE .log)"
+printf "Testing %s ...\n" "$(basename $LOGFILE .log)"
 
 if [ ! -x bin/pqsh ]; then
     echo "ERROR: Please build bin/pqsh"
     exit 1
 fi
 
-echo -n "  Running PQSH commands      ... "
+printf " %-60s ... " "Running PQSH commands"
 if pqsh_test_commands | valgrind --leak-check=full bin/pqsh -p fifo -n 2 > $LOGFILE 2> $LOGFILE.valgrind; then
     echo "Success"
 else
@@ -59,7 +59,7 @@ else
     exit 2
 fi
 
-echo -n "  Verifying PQSH output      ... "
+printf " %-60s ... " "Verifying PQSH output"
 if pqsh_check_output; then
     echo "Success"
 else
@@ -67,7 +67,7 @@ else
     exit 3
 fi
 
-echo -n "  Verifying PQSH memory      ... "
+printf " %-60s ... " "Verifying PQSH memory"
 if [ $(awk '/ERROR SUMMARY:/ {print $4}' $LOGFILE.valgrind) -eq 0 ]; then
     echo "Success"
 else

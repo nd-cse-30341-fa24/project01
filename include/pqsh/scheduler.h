@@ -14,6 +14,12 @@ typedef enum {
     RDRN_POLICY,        /* Round robin */
 } Policy;
 
+typedef enum {
+    EVENT_INPUT = 1<<0, /* Input event */
+    EVENT_TIMER = 1<<1, /* Timer event */
+    EVENT_CHILD = 1<<2, /* Child event */
+} Event;
+
 enum {
     RUNNING  = 1<<0,    /* Running queue */
     WAITING  = 1<<1,    /* Waiting queue */
@@ -28,6 +34,7 @@ struct Scheduler {
     Policy  policy;     /* Scheduling policy */
     size_t  cores;      /* Number of CPU cores to utilize */
     time_t  timeout;    /* Time slice (microseconds) */
+    Event   event;      /* Next event */
 
     Queue   running;    /* Queue of running processes */
     Queue   waiting;    /* Queue of waiting processes */
@@ -40,13 +47,18 @@ struct Scheduler {
 
 /* Commands */
 
-void    scheduler_add(Scheduler *s, FILE *fs, const char *command);
-void    scheduler_status(Scheduler *s, FILE *fs, int queue);
+void    scheduler_add(Scheduler *s, const char *command);
+void    scheduler_status(Scheduler *s, int queue);
 
 /* Functions */
 
 void    scheduler_next(Scheduler *s);
 void    scheduler_wait(Scheduler *s);
+
+/* Signal Handlers */
+
+void    scheduler_handle_sigalrm(int signum);
+void    scheduler_handle_sigchld(int signum);
 
 /* Policies */
 

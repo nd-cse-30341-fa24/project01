@@ -8,10 +8,10 @@
 /* Constants */
 
 Process PROCESSES[] = {
-    { "1", 1 },
-    { "2", 2 },
-    { "3", 3 },
-    { "4", 4 },
+    { "1", 1, .next = (void *)1 },
+    { "2", 2, .next = (void *)2 },
+    { "3", 3, .next = (void *)3 },
+    { "4", 4, .next = (void *)4 },
     { "0", 0 },
 };
 
@@ -24,6 +24,7 @@ int test_00_queue_push() {
     for (i = 0; PROCESSES[i].pid; i++) {
     	queue_push(&q, &PROCESSES[i]);
     	assert(q.size == i + 1);
+    	assert(PROCESSES[i].next == NULL);
     }
 
     assert(q.size == i);
@@ -44,13 +45,14 @@ int test_01_queue_pop() {
     for (i = 0; PROCESSES[i].pid; i++) {
     	queue_push(&q, &PROCESSES[i]);
     }
-    
+
     for (j = 0; PROCESSES[j].pid; j++) {
     	assert(q.head);
     	Process *p = queue_pop(&q);
     	assert(p);
     	assert(streq(p->command, PROCESSES[j].command));
     	assert(p->pid == PROCESSES[j].pid);
+    	assert(p->next == NULL);
     	assert(q.size == i - j - 1);
     }
     assert(queue_pop(&q) == NULL);
@@ -65,13 +67,14 @@ int test_02_queue_remove() {
     for (i = 0; PROCESSES[i].pid; i++) {
     	queue_push(&q, &PROCESSES[i]);
     }
-    
+
     for (j = 0; PROCESSES[j].pid; j++) {
     	assert(q.head);
     	Process *p = queue_remove(&q, j + 1);
     	assert(p);
     	assert(streq(p->command, PROCESSES[j].command));
     	assert(p->pid == PROCESSES[j].pid);
+    	assert(p->next == NULL);
     	assert(q.size == i - j - 1);
     }
     assert(queue_remove(&q, 0) == NULL);
