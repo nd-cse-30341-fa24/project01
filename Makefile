@@ -53,12 +53,12 @@ test-all:	test-units test-scripts
 
 test-units:	$(UNIT_PROGRAMS) $(UNIT_SCRIPTS)
 
-unit_%:		bin/unit_%.sh
+unit_%:		bin/unit_% bin/unit_%.sh
 	@./bin/$@.sh
 
 test-scripts:	$(TEST_PROGRAMS) $(TEST_SCRIPTS)
 
-test_%:		bin/test_%.sh
+test_%:		$(PQSH_PROGRAM) bin/test_%.sh
 	@./bin/$@.sh
 
 clean:
