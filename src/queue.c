@@ -1,6 +1,6 @@
 /* queue.c: PQSH Queue */
 
-#include "pqsh/macros.h"
+#include "pqsh/utils.h"
 #include "pqsh/queue.h"
 
 #include <assert.h>

@@ -1,6 +1,6 @@
 /* test_timestamp.c: Test PQSH Timestamp */
 
-#include "pqsh/macros.h"
+#include "pqsh/utils.h"
 #include "pqsh/process.h"
 #include "pqsh/timestamp.h"
 

@@ -1,6 +1,6 @@
 /* process.c: PQSH Process */
 
-#include "pqsh/macros.h"
+#include "pqsh/utils.h"
 #include "pqsh/process.h"
 #include "pqsh/timestamp.h"
 

@@ -1,6 +1,6 @@
 /* scheduler_fifo.c: PQSH FIFO Scheduler */
 
-#include "pqsh/macros.h"
+#include "pqsh/utils.h"
 #include "pqsh/scheduler.h"
 
 #include <assert.h>

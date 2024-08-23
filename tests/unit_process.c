@@ -1,6 +1,6 @@
 /* test_process.c: Test PQSH Process */
 
-#include "pqsh/macros.h"
+#include "pqsh/utils.h"
 #include "pqsh/process.h"
 
 #include <assert.h>

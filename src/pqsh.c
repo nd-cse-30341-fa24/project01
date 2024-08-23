@@ -1,6 +1,6 @@
 /* pqsh.c: Process Queue Shell */
 
-#include "pqsh/macros.h"
+#include "pqsh/utils.h"
 #include "pqsh/options.h"
 #include "pqsh/scheduler.h"
 

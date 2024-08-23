@@ -1,4 +1,4 @@
-/* macros.h: PQSH Macros */
+/* utils.h: PQSH Utility macros */
 
 #ifndef PQSH_MACROS_H
 #define PQSH_MACROS_H
@@ -10,7 +10,7 @@
 
 /* Logging */
 
-#ifdef DEBUG
+#ifndef NDEBUG
 #define debug(M, ...) \
     fprintf(stderr, "[%09lu] DEBUG %s:%d:%s: " M "\n", time(NULL), __FILE__, __LINE__, __func__, ##__VA_ARGS__)
 #else
@@ -23,7 +23,7 @@
 #define error(M, ...) \
     fprintf(stderr, "[%09lu] ERROR " M "\n", time(NULL), ##__VA_ARGS__)
 
-/* Utilities */
+/* Miscellaneous */
 
 #define chomp(s)            if (strlen(s)) { s[strlen(s) - 1] = 0; }
 #define min(a, b)           ((a) < (b) ? (a) : (b))

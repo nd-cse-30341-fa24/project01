@@ -1,6 +1,6 @@
 /* scheduler.c: PQSH Scheduler */
 
-#include "pqsh/macros.h"
+#include "pqsh/utils.h"
 #include "pqsh/scheduler.h"
 #include "pqsh/timestamp.h"
 

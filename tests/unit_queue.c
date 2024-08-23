@@ -1,6 +1,6 @@
 /* test_queue.c: Test PQSH Queue */
 
-#include "pqsh/macros.h"
+#include "pqsh/utils.h"
 #include "pqsh/queue.h"
 
 #include <assert.h>

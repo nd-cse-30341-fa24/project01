@@ -1,6 +1,6 @@
 /* scheduler_rdrn.c: PQSH Round Robin Scheduler */
 
-#include "pqsh/macros.h"
+#include "pqsh/utils.h"
 #include "pqsh/scheduler.h"
 
 #include <assert.h>

@@ -1,6 +1,6 @@
 /* options.c: PQSH Options */
 
-#include "pqsh/macros.h"
+#include "pqsh/utils.h"
 #include "pqsh/scheduler.h"
 
 /**
