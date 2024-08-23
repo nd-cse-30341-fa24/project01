@@ -9,7 +9,7 @@
  * Push process to back of queue.
  * @param q     Pointer to Queue structure.
  **/
-void        queue_push(Queue *q, Process *p) {
+void queue_push(Queue *q, Process *p) {
     /* TODO: Implement */
 }
 
@@ -18,7 +18,7 @@ void        queue_push(Queue *q, Process *p) {
  * @param q     Pointer to Queue structure.
  * @return  Process from front of queue.
  **/
-Process *   queue_pop(Queue *q) {
+Process * queue_pop(Queue *q) {
     /* TODO: Implement */
     return NULL;
 }
@@ -29,7 +29,7 @@ Process *   queue_pop(Queue *q) {
  * @param pid   Pid of process to return.
  * @return  Process from Queue with specified pid.
  **/
-Process *   queue_remove(Queue *q, pid_t pid) {
+Process * queue_remove(Queue *q, pid_t pid) {
     /* TODO: Implement */
     return NULL;
 }
@@ -39,7 +39,7 @@ Process *   queue_remove(Queue *q, pid_t pid) {
  * @param q     Queue structure.
  * @param fs    Output file stream.
  **/
-void        queue_dump(Queue *q, FILE *fs) {
+void queue_dump(Queue *q, FILE *fs) {
     fprintf(fs, "%9s %-30s %-13s %-13s %-13s\n",
                 "PID", "COMMAND", "ARRIVAL", "START", "END");
     /* TODO: Display information for each item in Queue. */
