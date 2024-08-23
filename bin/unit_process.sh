@@ -2,16 +2,16 @@
 
 UNIT=bin/unit_process
 WORKSPACE=/tmp/process.$(id -u)
-FailureS=0
+FAILURES=0
 
 error() {
     echo "$@"
     [ -r $WORKSPACE/test ] && (echo; cat $WORKSPACE/test; echo)
-    FailureS=$((FAILURES + 1))
+    FAILURES=$((FAILURES + 1))
 }
 
 cleanup() {
-    STATUS=${1:-$FailureS}
+    STATUS=${1:-$FAILURES}
     rm -fr $WORKSPACE
     exit $STATUS
 }
