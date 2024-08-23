@@ -8,8 +8,8 @@
 /**
  * Return current timestamp as a double.
  *
- * Utilizes gettimeofday for precision (accounting for seconds and
- * microseconds) and falls back to time (only account for seconds) if that
+ * Utilizes clock_gettime for precision (accounting for seconds and
+ * nanoseconds) and falls back to time (only account for seconds) if that
  * fails.
  *
  * @return  Double representing the current time.
