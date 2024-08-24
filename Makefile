@@ -3,7 +3,7 @@
 CC= 		gcc
 LD= 		gcc
 AR= 		ar
-CFLAGS= 	-Wall -g -std=gnu99 -Iinclude -fPIC
+CFLAGS= 	-Wall -g -std=gnu99 -Og -Iinclude -fPIC
 LDFLAGS= 	-Llib
 ARFLAGS= 	rcs
 
