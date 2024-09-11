@@ -27,34 +27,34 @@ bool parse_command_line_options(int argc, char *argv[], Scheduler *s) {
     int argind = 1;
 
     while (argind < argc && strlen(argv[argind]) > 1 && argv[argind][0] == '-') {
-	char *arg = argv[argind++];
-	char *opt = NULL;
+        char *arg = argv[argind++];
+        char *opt = NULL;
 
-	switch (arg[1]) {
-	    case 'n':
-	    	s->cores = atoi(argv[argind++]);
-	    	break;
-	    case 'p':
-	        opt = argv[argind++];
-	        if (streq(opt, "fifo")) {
-	            s->policy = FIFO_POLICY;
+        switch (arg[1]) {
+            case 'n':
+                s->cores = atoi(argv[argind++]);
+                break;
+            case 'p':
+                opt = argv[argind++];
+                if (streq(opt, "fifo")) {
+                    s->policy = FIFO_POLICY;
                 } else if (streq(opt, "rdrn")) {
-	            s->policy = RDRN_POLICY;
+                    s->policy = RDRN_POLICY;
                 } else {
                     fprintf(stderr, "Unknown policy: %s\n", opt);
                     return false;
                 }
-	    	break;
-	    case 't':
-	    	s->timeout = atoi(argv[argind++]);
-	    	break;
-	    case 'h':
-	    	usage(argv[0]);
-	    	return false;
-	    default:
-	    	usage(argv[0]);
-	    	return false;
-	}
+                break;
+            case 't':
+                s->timeout = atoi(argv[argind++]);
+                break;
+            case 'h':
+                usage(argv[0]);
+                return false;
+            default:
+                usage(argv[0]);
+                return false;
+        }
     }
 
     return true;

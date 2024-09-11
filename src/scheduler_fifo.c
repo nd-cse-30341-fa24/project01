@@ -12,7 +12,7 @@
  *  there are waiting processes, then we should move a process from the
  *  waiting queue to the running queue.
  *
- * @param   s	    Scheduler structure
+ * @param   s       Scheduler structure
  **/
 void scheduler_fifo(Scheduler *s) {
     /* TODO: Implement FIFO Policy */

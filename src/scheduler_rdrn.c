@@ -16,7 +16,7 @@
  *  3. Move one process from front of waiting queue and place in back of
  *  running queue.
  *
- * @param   s	    Scheduler structure
+ * @param   s       Scheduler structure
  **/
 void scheduler_rdrn(Scheduler *s) {
     /* TODO: Implement Round Robin Policy */

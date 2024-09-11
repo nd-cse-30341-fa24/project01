@@ -20,7 +20,7 @@ Scheduler PQSHScheduler = {
 
 /**
  * Add new command to waiting queue.
- * @param   s	    Pointer to Scheduler structure.
+ * @param   s       Pointer to Scheduler structure.
  * @param   command Command string for new Process.
  **/
 void scheduler_add(Scheduler *s, const char *command) {
@@ -29,7 +29,7 @@ void scheduler_add(Scheduler *s, const char *command) {
 
 /**
  * Display status of queues in Scheduler.
- * @param   s	    Pointer to Scheduler structure.
+ * @param   s       Pointer to Scheduler structure.
  * @param   queue   Bitmask specifying which queues to display.
  **/
 void scheduler_status(Scheduler *s, int queue) {
@@ -39,7 +39,7 @@ void scheduler_status(Scheduler *s, int queue) {
 
 /**
  * Schedule next process using appropriate policy.
- * @param   s	    Pointer to Scheduler structure.
+ * @param   s       Pointer to Scheduler structure.
  **/
 void scheduler_next(Scheduler *s) {
     /* TODO: Dispatch to appropriate scheduler function. */
@@ -47,7 +47,7 @@ void scheduler_next(Scheduler *s) {
 
 /**
  * Wait for any children and remove from queues and update metrics.
- * @param   s	    Pointer to Scheduler structure.
+ * @param   s       Pointer to Scheduler structure.
  **/
 void scheduler_wait(Scheduler *s) {
     /* TODO: Wait for any children without blocking:
