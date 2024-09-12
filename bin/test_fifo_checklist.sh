@@ -19,10 +19,11 @@ pqsh_check_output() {
 import re
 import sys
 
-lines = open("$LOGFILE").readlines()
+status_rx  = r'Running =\\s+([0-9]+), Waiting =\\s+([0-9]+), Finished =\\s+([0-9]+), Turnaround =\\s+([0-9\\.]+), Response =\\s+([0-9\\.]+)'
+stdout_txt = open("$LOGFILE").read()
 try:
     running, waiting, finished, turnaround, response = \
-	[float(line.split('=')[-1]) for line in lines[-9].split(',')]
+	map(float, re.findall(status_rx, stdout_txt)[-1])
 except ValueError:
     sys.exit(1)
 
